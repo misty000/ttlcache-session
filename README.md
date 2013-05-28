@@ -3,7 +3,7 @@
 ## Usage
 
 - In compojure:
-```clojure
+```
 (ns ttlcache-session-app.handler
 	(:use compojure.core
 		  ring.util.response)
