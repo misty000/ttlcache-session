@@ -1,9 +1,17 @@
 # ttlcache-session
 
+a session storage with expire.
+
+## Dependencies
+
+	[ring/ring-core "1.1.8"]
+	[org.clojure/core.cache "0.6.3"]
+
 ## Usage
 
 - In compojure:
-```
+
+```clojure
 (ns ttlcache-session-app.handler
 	(:use compojure.core
 		  ring.util.response)
@@ -30,8 +38,12 @@
 	; or (storage/ttl-cache-store 3600000)
 ```
 
+- In lib-noir
+
+	TODO
+
 ## License
 
-Copyright © 2013 FIXME
+Copyright © 2013 misty000
 
 Distributed under the Eclipse Public License, the same as Clojure.
