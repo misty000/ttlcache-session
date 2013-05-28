@@ -4,10 +4,16 @@
 	(:require [clojure.core.cache :as cache])
 	(:import java.util.UUID))
 
+;(defn- reset [ttl-cache key]
+;	(let [data (get ttl-cache key)]
+;		(assoc ttl-cache key data)))
+
 (deftype TTLCacheStore [session-atom]
 	SessionStore
 	(read-session [_ key]
-		(let [session-map (swap! session-atom #(assoc % key (get % key)))] ;reset timeout
+		(let [session-map (swap! session-atom (fn [cache]
+												  (let [data (get cache key)]
+													  (assoc cache key data))))] ;reset timeout
 			(get session-map key)))
 	(write-session [_ key data]
 		(let [key (or key (str (UUID/randomUUID)))]

@@ -5,4 +5,5 @@
 			  :url "http://www.eclipse.org/legal/epl-v10.html"}
 	:dependencies [[org.clojure/clojure "1.5.1"]
 				   [org.clojure/core.cache "0.6.3"]
-				   [ring/ring-core "1.1.8"]])
+				   [ring/ring-core "1.1.8"]]
+	:profiles {:dev {:dependencies [[ring-mock "0.1.3"]]}})
